@@ -14,9 +14,9 @@ class HomeCubit extends Cubit<MainState> {
       case 1:
         return emit(Explorestate());
       case 2:
-        return emit(Explorestate());
+        return emit(CartState());
       case 3:
-        return emit(Explorestate());    
+        return emit(ProfileState());
     }
   }
 }

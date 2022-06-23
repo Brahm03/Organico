@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:organic/core/components/navigatorService.dart/navigationservice.dart';
 import 'package:organic/core/components/themes/all_themes.dart';
 import 'package:organic/routes/allroutes.dart';
+import 'package:organic/service/data_service.dart';
 
 void main() {
   runApp(const MyApp());
+  DataService.instance.getdata();
 }
 
 class MyApp extends StatelessWidget {

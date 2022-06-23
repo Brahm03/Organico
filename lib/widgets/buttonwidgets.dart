@@ -26,7 +26,7 @@ class ButtonWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      style: AllStyles.elevetedStyle(
+      style: AllStyles.instance.elevetedStyle(
           backgroundcolor: backGroundColor,
           borderColor: bordercolor,
           height: height,
