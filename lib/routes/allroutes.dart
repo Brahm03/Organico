@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organic/views/auth/view/main/auth_main.dart';
+import 'package:organic/views/home/view/main/main_view.dart';
 import 'package:organic/views/splash/view/splashview.dart';
 
 class AllRoutes {
@@ -12,8 +13,10 @@ class AllRoutes {
     switch (settings.name) {
       case '/splash':
         return pageReturner(const SplashView());
-       case '/auth':
+      case '/auth':
         return pageReturner(const AuthMain());
+      case '/main_view':
+        return pageReturner(const MainView());
     }
     return null;
   }

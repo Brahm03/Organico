@@ -75,7 +75,7 @@ class SingInView extends StatelessWidget {
                   Align(
                       alignment: Alignment.centerRight,
                       child: InkWell(
-                        onTap: () => context.read<AuthCubit>().changeState(VerificationState()),
+                        onTap: () => context.read<AuthCubit>().changeState(OTACstate()),
                         child: const Text(
                           'Forgot Password',
                           style: FontStyles.headline6sgreen,

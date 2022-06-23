@@ -29,7 +29,8 @@ class _SplashViewState extends State<SplashView>
         _controller.value;
       });
     });
-    Timer(const Duration(seconds: 5), () => NavigationService.instance.pushNamedAndRemoveUntil('/auth'));
+    Timer(const Duration(seconds: 5),
+        () => NavigationService.instance.pushNamedAndRemoveUntil('/auth'));
   }
 
   @override
@@ -54,5 +55,11 @@ class _SplashViewState extends State<SplashView>
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 }

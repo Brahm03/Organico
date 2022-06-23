@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ColorConst {
@@ -10,4 +11,7 @@ class ColorConst {
   static const Color grey = Color(0XFF92929D);
   static const Color darkGrey = Color(0XFF696974);
   static const Color green = Color(0XFF2ECC71);
+  static const Color whiteYellow = Color(0XFFF3A20C);
+  static const Color whitePink = Color(0XFFFE706E);
+  static Color whiteGreen = CupertinoColors.activeGreen.withOpacity(0.5);
 }
