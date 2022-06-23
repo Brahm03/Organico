@@ -21,7 +21,7 @@ class SignUpView extends StatelessWidget {
         child: Column(
           children: [
             AppBarWidget(
-              onpressed: () => context.read<AuthCubit>().changeState(SingInState()),
+              onpressed: () => context.read<AuthCubit>().changeState(VerificationState()),
               text: 'New Registration',
             ),
             if(!KeyboardService.instance.keyboardchek(context)) SizedBox(height: context.h * 0.05),

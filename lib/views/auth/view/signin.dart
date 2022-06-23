@@ -9,16 +9,16 @@ import 'package:organic/core/constants/radius/radiusConst.dart';
 import 'package:organic/extension/size_extension.dart';
 import 'package:organic/views/auth/cubit/auth_cubit.dart';
 import 'package:organic/views/auth/state/auth_state.dart';
+import 'package:organic/views/auth/view/phoneverification.dart';
 import 'package:organic/widgets/buttonwidgets.dart';
 import 'package:organic/widgets/textformfield.dart';
 
 class SingInView extends StatelessWidget {
-  final BuildContext contextnew;
-  const SingInView({required this.contextnew, Key? key}) : super(key: key);
+  const SingInView({Key? key}) : super(key: key);
 
   @override
   // ignore: avoid_renaming_method_parameters
-  Widget build(BuildContext contextnew) {
+  Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -29,22 +29,22 @@ class SingInView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  if (!KeyboardService.instance.keyboardchek(contextnew))
+                  if (!KeyboardService.instance.keyboardchek(context))
                     SizedBox(
-                        height: contextnew.h * 0.3,
+                        height: context.h * 0.3,
                         child: Image.asset(
                             'assets/images/Welcome_Illustration.png')),
-                  SizedBox(height: contextnew.h * 0.05),
+                  SizedBox(height: context.h * 0.05),
                   const Text(
                     'Welcome',
                     style: FontStyles.headline5sbold,
                   ),
-                  SizedBox(height: contextnew.h * 0.01),
+                  SizedBox(height: context.h * 0.01),
                   const Text(
                     'Welcome to Organico Mobile Apps. Please fill in\nthe field below to sign in.',
                     style: FontStyles.headline7sthin,
                   ),
-                  SizedBox(height: contextnew.h * 0.05),
+                  SizedBox(height: context.h * 0.05),
                   IntlPhoneField(
                     decoration: InputDecoration(
                         contentPadding: PMconst.small,
@@ -54,11 +54,11 @@ class SingInView extends StatelessWidget {
                   ),
                   StatefulBuilder(
                     builder: (context, setState) => TextformFieldWidgets(
-                      obSecure: contextnew.watch<AuthCubit>().obsecured,
+                      obSecure: context.watch<AuthCubit>().obsecured,
                       hintText: 'Password',
                       suffixIcon: IconButton(
                         onPressed: () {
-                          contextnew.read<AuthCubit>().changeObsecure();
+                          context.read<AuthCubit>().changeObsecure();
                           setState(() {});
                         },
                         icon: IconConst.eye,
@@ -71,19 +71,19 @@ class SingInView extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: contextnew.h * 0.02),
+                  SizedBox(height: context.h * 0.02),
                   Align(
                       alignment: Alignment.centerRight,
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () => context.read<AuthCubit>().changeState(VerificationState()),
                         child: const Text(
                           'Forgot Password',
                           style: FontStyles.headline6sgreen,
                         ),
                       )),
-                  SizedBox(height: contextnew.h * 0.01),
+                  SizedBox(height: context.h * 0.01),
                   ButtonWidgets(text: 'Sign in', onPressed: () {}),
-                  SizedBox(height: contextnew.h * 0.01),
+                  SizedBox(height: context.h * 0.01),
                   Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -93,7 +93,7 @@ class SingInView extends StatelessWidget {
                           style: FontStyles.headline7s,
                         ),
                         TextButton(
-                          onPressed: () => contextnew.read<AuthCubit>().changeState(VerificationState()),
+                          onPressed: () => context.read<AuthCubit>().changeState(VerificationState()),
                           child: const Text(
                             'Sign up',
                             style: FontStyles.headline6sgreen,

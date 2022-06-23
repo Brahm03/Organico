@@ -13,3 +13,15 @@ class SignUpState extends AuthState {
 class VerificationState extends AuthState {
   VerificationState();
 }
+
+class AutharizationState extends AuthState {
+  AutharizationState();
+}
+
+class OTACstate extends AuthState {
+  OTACstate();
+}
+
+class ResetPasswordState extends AuthState {
+  ResetPasswordState();
+}
