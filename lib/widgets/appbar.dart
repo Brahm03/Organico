@@ -6,10 +6,12 @@ import 'package:organic/extension/size_extension.dart';
 class AppBarWidget extends StatelessWidget {
   final VoidCallback onpressed;
   final String text;
+  final bool showbutton;
   final Widget trailing;
   const AppBarWidget(
       {this.trailing = const SizedBox(),
       this.text = '',
+      this.showbutton = true,
       required this.onpressed,
       Key? key})
       : super(key: key);
@@ -25,7 +27,7 @@ class AppBarWidget extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: context.w * 0.02),
           child: Row(
             children: [
-              IconButton(onPressed: onpressed, icon: IconConst.leftarrow),
+              showbutton ? IconButton(onPressed: onpressed, icon: IconConst.leftarrow) : const SizedBox(),
               SizedBox(
                 width: context.w * 0.05,
               ),
@@ -33,6 +35,7 @@ class AppBarWidget extends StatelessWidget {
                 text,
                 style: FontStyles.headline5sbold,
               ),
+              const Spacer(),
               trailing
             ],
           ),

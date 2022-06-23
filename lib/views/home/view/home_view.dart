@@ -1,10 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:organic/core/constants/PM/PMconst.dart';
+import 'package:organic/core/constants/color/colorConst.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
 import 'package:organic/core/constants/icons/iconConst.dart';
 import 'package:organic/core/constants/radius/radiusConst.dart';
 import 'package:organic/extension/size_extension.dart';
+import 'package:organic/service/data_service.dart';
+import 'package:organic/views/home/cubit/home_cubit.dart';
+import 'package:organic/widgets/categories_widget.dart';
+import 'package:organic/widgets/coupon_list_tile.dart';
 import 'package:organic/widgets/productbigwidget.dart';
 
 class HomeView extends StatelessWidget {
@@ -44,13 +50,60 @@ class HomeView extends StatelessWidget {
                               BorderRadius.circular(RadiuConst.extraLarge),
                           color: CupertinoColors.systemGrey4),
                     ),
-                    SizedBox(height: context.h * 0.1),
+                    SizedBox(height: context.h * 0.03),
+                    CouponListTileWidget(
+                        trailing: IconConst.rightarrow,
+                        leadingColor: ColorConst.whiteGreen,
+                        title: 'You have 3 cupon',
+                        subtitle: 'Let’s use this coupon'),
+                    SizedBox(height: context.h * 0.03),
                     Row(
                       children: [
-                        const Text('Choose Category', style: FontStyles.headline6sbold,),
+                        const Text(
+                          'Choose Category',
+                          style: FontStyles.headline6sbold,
+                        ),
                         const Spacer(),
-                        InkWell(onTap: (){},child: Text('See all', style: FontStyles.headline6sdarkgrey,))
+                        InkWell(
+                            onTap: () {},
+                            child: const Text(
+                              'See all',
+                              style: FontStyles.headline6sdarkgrey,
+                            ))
                       ],
+                    ),
+                    SizedBox(
+                      height: context.h * 0.17,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount:
+                              context.watch<HomeCubit>().categoriesList.length,
+                          itemBuilder: (_, __) {
+                            return CategoriesWidget(index: __);
+                          }),
+                    ),
+                    SizedBox(height: context.h * 0.05),
+                    Row(
+                      children: [
+                        const Text(
+                          'Best selling',
+                          style: FontStyles.headline6sbold,
+                        ),
+                        const Spacer(),
+                        InkWell(
+                            onTap: () {},
+                            child: const Text(
+                              'See all',
+                              style: FontStyles.headline6sdarkgrey,
+                            ))
+                      ],
+                    ),
+                    SizedBox(height: context.h * 0.005),
+                    SizedBox(
+                      height: context.h * 0.28,
+                      child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: DataService.instance.alldata[1].length,itemBuilder: (_, __) {
+                        return ProductBigWidget(height: context.h * 0.1,index: __, color: ColorConst.whiteblue);
+                      }),
                     )
                   ],
                 ),

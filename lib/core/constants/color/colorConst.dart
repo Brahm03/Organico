@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class ColorConst {
   static const Color kPrimaryColor = Color(0XFFAB0023);

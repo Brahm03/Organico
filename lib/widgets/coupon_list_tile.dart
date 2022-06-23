@@ -30,7 +30,7 @@ class CouponListTileWidget extends StatelessWidget {
           width: context.w * 0.12,
           height: context.w * 0.12,
           padding: PMconst.extraSmall,
-          decoration: AllStyles.instance.productStyel(color: listTileColor!),
+          // decoration: AllStyles.instance.productStyel(color: listTileColor!),
           child: IconConst.cupon,),
         title: Text(title, style: FontStyles.headline4sbold),
         subtitle: Text(subtitle, style: FontStyles.headline6sdarkgrey),
