@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organic/views/auth/view/main/auth_main.dart';
+import 'package:organic/views/home/view/info_view.dart';
 import 'package:organic/views/home/view/main/main_view.dart';
 import 'package:organic/views/splash/view/splashview.dart';
 
@@ -17,6 +18,8 @@ class AllRoutes {
         return pageReturner(const AuthMain());
       case '/main_view':
         return pageReturner(const MainView());
+      case '/info_view':
+        return pageReturner(const InfoView());
     }
     return null;
   }

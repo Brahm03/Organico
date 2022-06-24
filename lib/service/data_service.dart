@@ -15,6 +15,5 @@ class DataService {
     List lst = jsonDecode(data) as List;
 
     alldata = lst;
-
   }
 }

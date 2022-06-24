@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:organic/core/components/navigatorService.dart/navigationservice.dart';
 import 'package:organic/core/constants/PM/PMconst.dart';
 import 'package:organic/core/constants/color/colorConst.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
@@ -102,7 +103,7 @@ class HomeView extends StatelessWidget {
                     SizedBox(
                       height: context.h * 0.28,
                       child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: DataService.instance.alldata[1].length,itemBuilder: (_, __) {
-                        return ProductBigWidget(height: context.h * 0.1,index: __, color: ColorConst.whiteblue);
+                        return InkWell(onTap: () => NavigationService.instance.pushNamed('/info_view'),child: ProductBigWidget(height: context.h * 0.1,index: __, color: ColorConst.whiteblue));
                       }),
                     )
                   ],
