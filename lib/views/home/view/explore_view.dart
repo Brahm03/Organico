@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:organic/core/constants/PM/PMconst.dart';
-import 'package:organic/core/constants/color/colorConst.dart';
 import 'package:organic/core/constants/icons/iconConst.dart';
 import 'package:organic/extension/size_extension.dart';
 import 'package:organic/service/data_service.dart';
+import 'package:organic/views/home/cubit/home_cubit.dart';
 import 'package:organic/widgets/appbar.dart';
 import 'package:organic/widgets/productbigwidget.dart';
 
@@ -38,7 +39,7 @@ class ExploreView extends StatelessWidget {
                   itemBuilder: (_, __) {
                     return ProductBigWidget(
                         height: context.h * 0.15,
-                        index: __, color: ColorConst.whitePink);
+                        index: __, color: context.watch<HomeCubit>().colorList[__]);
                   }),
             )
           ],

@@ -4,6 +4,7 @@ import 'package:organic/core/constants/PM/PMconst.dart';
 import 'package:organic/core/constants/color/colorConst.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
 import 'package:organic/core/constants/icons/iconConst.dart';
+import 'package:organic/core/constants/radius/radiusConst.dart';
 import 'package:organic/extension/size_extension.dart';
 import 'package:organic/service/data_service.dart';
 import 'package:organic/widgets/appbar.dart';
@@ -22,7 +23,7 @@ class CartView extends StatelessWidget {
             AppBarWidget(onpressed: (){}, text: 'My cart', showbutton: false,),
             SizedBox(height: context.h * 0.04),
             Padding(
-              padding: PMconst.small,
+              padding: PMconst.extraSmall,
               child: Container(
                 width: context.w,
                 padding: PMconst.small,
@@ -59,21 +60,23 @@ class CartView extends StatelessWidget {
                           ),
                           SizedBox(width: context.w * 0.07),
                           SizedBox(
-                            width: context.w * 0.20,
+                            width: context.w * 0.25,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                InkWell(child: IconConst.minus),
+                                IconButton(splashRadius: RadiuConst.small,onPressed: (){},icon: IconConst.minus),
                                 Expanded(
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    child: const Text(
-                                      "1",
-                                      style: FontStyles.headline5sbold,
+                                  child: Center(
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      child: const Text(
+                                        "1",
+                                        style: FontStyles.headline5sbold,
+                                      ),
                                     ),
                                   ),
                                 ),
-                                InkWell(child: IconConst.plus),
+                                IconButton(splashRadius: RadiuConst.small,onPressed: (){},icon: IconConst.plus),
                               ],
                             ),
                           )

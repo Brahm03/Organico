@@ -22,14 +22,21 @@ class HomeCubit extends Cubit<MainState> {
     ColorConst.whiteGreen,
     ColorConst.whitePink,
     ColorConst.whiteYellow,
-    ColorConst.whiteblue
+    ColorConst.whiteblue,
+    ColorConst.whiteGreen,
+    ColorConst.whitePink,
+    ColorConst.whiteYellow,
   ];
+
+  int kg = 1;
+
+  buymore() {
+    kg++;
+  }
 
   int random = Random().nextInt(4);
 
   static List<int> randoms = List.generate(4, (index) => Random().nextInt(4));
-
-
 
   onStateChange(int index) {
     currentIndex = index;

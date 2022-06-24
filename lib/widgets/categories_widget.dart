@@ -22,7 +22,7 @@ class CategoriesWidget extends StatelessWidget {
             height: context.h * 0.16,
             width: context.w * 0.32,
             decoration: AllStyles.instance
-                .productStyel(color: context.watch<HomeCubit>().colorList[0]),
+                .productStyel(color: context.watch<HomeCubit>().colorList[index]),
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
