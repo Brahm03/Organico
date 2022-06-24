@@ -24,7 +24,7 @@ class AllRoutes {
           product: args as Map,
         ));
       case '/search_view':
-        return pageReturner(const SearchView());
+        return pageReturner(SearchView(newcontext: args as BuildContext,));
     }
     return null;
   }

@@ -47,7 +47,7 @@ class HomeView extends StatelessWidget {
                 child: Column(
                   children: [
                     CupertinoSearchTextField(
-                      onTap: () => NavigationService.instance.pushNamed(routeName: '/search_view'),
+                      onTap: () => NavigationService.instance.pushNamed(routeName: '/search_view', args: context),
                       decoration: AllStyles.instance.searchFieldStyle,
                     ),
                     SizedBox(height: context.h * 0.03),

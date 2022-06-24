@@ -18,6 +18,9 @@ class HomeCubit extends Cubit<MainState> {
 
   List categoriesName = ['Vegetables', 'Fruits', 'Meats'];
 
+  List mostSearched = ['Onion', 'Watermelon', 'Blackurrant', 'Mushroom'];
+
+
   List<Color> colorList = [
     ColorConst.whiteGreen,
     ColorConst.whitePink,
