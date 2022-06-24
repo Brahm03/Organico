@@ -19,7 +19,7 @@ class AllRoutes {
       case '/main_view':
         return pageReturner(const MainView());
       case '/info_view':
-        return pageReturner(const InfoView());
+        return pageReturner(InfoView(product: args as Map,));
     }
     return null;
   }

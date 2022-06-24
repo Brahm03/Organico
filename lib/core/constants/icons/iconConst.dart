@@ -16,5 +16,7 @@ class IconConst {
   static SvgPicture cupon = SvgPicture.asset('assets/icons/cupon.svg');
   static SvgPicture filter = SvgPicture.asset('assets/icons/filter.svg');
   static SvgPicture minus = SvgPicture.asset('assets/icons/minus.svg');
-  static SvgPicture heart = SvgPicture.asset('assets/icon/heart.svg');
+  static SvgPicture heart = SvgPicture.asset('assets/icons/heart.svg');
+  static SvgPicture time = SvgPicture.asset('assets/icons/time.svg');
+  static SvgPicture category = SvgPicture.asset('assets/icons/category.svg');
 }

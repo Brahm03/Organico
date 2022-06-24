@@ -103,7 +103,7 @@ class HomeView extends StatelessWidget {
                     SizedBox(
                       height: context.h * 0.28,
                       child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: DataService.instance.alldata[1].length,itemBuilder: (_, __) {
-                        return InkWell(onTap: () => NavigationService.instance.pushNamed('/info_view'),child: ProductBigWidget(height: context.h * 0.1,index: __, color: ColorConst.whiteblue));
+                        return InkWell(onTap: () => NavigationService.instance.pushNamed(routeName: '/info_view', args: DataService.instance.alldata[1][__]),child: ProductBigWidget(height: context.h * 0.1,index: __, color: ColorConst.whiteblue));
                       }),
                     )
                   ],
