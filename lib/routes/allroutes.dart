@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:organic/views/auth/view/main/auth_main.dart';
 import 'package:organic/views/home/view/info_view.dart';
 import 'package:organic/views/home/view/main/main_view.dart';
+import 'package:organic/views/home/view/search_view.dart';
 import 'package:organic/views/splash/view/splashview.dart';
 
 class AllRoutes {
@@ -19,7 +20,11 @@ class AllRoutes {
       case '/main_view':
         return pageReturner(const MainView());
       case '/info_view':
-        return pageReturner(InfoView(product: args as Map,));
+        return pageReturner(InfoView(
+          product: args as Map,
+        ));
+      case '/search_view':
+        return pageReturner(const SearchView());
     }
     return null;
   }

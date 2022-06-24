@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:organic/core/components/navigatorService.dart/navigationservice.dart';
+import 'package:organic/core/components/styles/allstyles.dart';
 import 'package:organic/core/constants/PM/PMconst.dart';
 import 'package:organic/core/constants/color/colorConst.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
@@ -46,10 +47,8 @@ class HomeView extends StatelessWidget {
                 child: Column(
                   children: [
                     CupertinoSearchTextField(
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(RadiuConst.extraLarge),
-                          color: CupertinoColors.systemGrey4),
+                      onTap: () => NavigationService.instance.pushNamed(routeName: '/search_view'),
+                      decoration: AllStyles.instance.searchFieldStyle,
                     ),
                     SizedBox(height: context.h * 0.03),
                     CouponListTileWidget(

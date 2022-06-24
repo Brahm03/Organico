@@ -1,4 +1,4 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:organic/core/constants/color/colorConst.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
@@ -25,11 +25,15 @@ class AllStyles {
         fixedSize: Size(width, height));
   }
 
-  productStyel({Color borderColor = Colors.transparent,required Color color}) {
+  productStyel({Color borderColor = Colors.transparent, required Color color}) {
     return BoxDecoration(
       border: Border.all(color: borderColor, width: 1),
       color: color,
       borderRadius: BorderRadius.circular(RadiuConst.large),
     );
   }
+
+  get searchFieldStyle => BoxDecoration(
+      borderRadius: BorderRadius.circular(RadiuConst.extraLarge),
+      color: CupertinoColors.systemGrey4);
 }
