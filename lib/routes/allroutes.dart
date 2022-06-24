@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organic/views/auth/view/main/auth_main.dart';
+import 'package:organic/views/home/view/cupon_view.dart';
 import 'package:organic/views/home/view/info_view.dart';
 import 'package:organic/views/home/view/main/main_view.dart';
 import 'package:organic/views/home/view/search_view.dart';
@@ -25,6 +26,8 @@ class AllRoutes {
         ));
       case '/search_view':
         return pageReturner(SearchView(newcontext: args as BuildContext,));
+      case '/cupon_view':
+        return pageReturner(CuponView(context1: args as BuildContext,));  
     }
     return null;
   }

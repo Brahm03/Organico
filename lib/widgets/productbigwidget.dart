@@ -1,17 +1,27 @@
-
 import 'package:flutter/material.dart';
 import 'package:organic/core/components/styles/allstyles.dart';
 import 'package:organic/core/constants/PM/PMconst.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
 import 'package:organic/core/constants/icons/iconConst.dart';
 import 'package:organic/extension/size_extension.dart';
-import 'package:organic/service/data_service.dart';
 
 class ProductBigWidget extends StatelessWidget {
   final Color color;
   final int index;
   final double height;
-  const ProductBigWidget({required this.height,required this.index, required this.color, Key? key})
+  final String name;
+  final String image_url;
+  final String cost;
+  final String market;
+  const ProductBigWidget(
+      {required this.height,
+      required this.index,
+      required this.color,
+      required this.cost,
+      required this.image_url,
+      required this.market,
+       required this.name,
+      Key? key})
       : super(key: key);
 
   @override
@@ -27,23 +37,21 @@ class ProductBigWidget extends StatelessWidget {
         children: [
           SizedBox(
               height: height,
-              child: Image.asset(DataService
-                  .instance.alldata[1][index]['image_url']
-                  .toString())),
+              child: Image.asset(image_url)),
           SizedBox(height: context.h * 0.01),
           Text(
-            DataService.instance.alldata[0][index]['name'].toString(),
+            name,
             style: FontStyles.headline5sbold,
           ),
           Text(
-            DataService.instance.alldata[1][index]['market'].toString(),
+            market,
             style: FontStyles.headline6sdarkgrey,
           ),
           SizedBox(height: context.h * 0.02),
           Row(
             children: [
               Text(
-                '${DataService.instance.alldata[1][index]['cost']} / Kg',
+                '$cost / Kg',
                 style: FontStyles.headline6sbold,
               ),
               const Spacer(),

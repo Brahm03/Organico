@@ -38,6 +38,10 @@ class ExploreView extends StatelessWidget {
                       crossAxisCount: 2, mainAxisSpacing: context.h * 0.05,mainAxisExtent: context.h * 0.35),
                   itemBuilder: (_, __) {
                     return ProductBigWidget(
+                        name: DataService.instance.alldata[0][__]['name'].toString(),
+                        market: DataService.instance.alldata[0][__]['market'].toString(),
+                        image_url: DataService.instance.alldata[0][__]['image_url'].toString(),
+                        cost: DataService.instance.alldata[0][__]['cost'].toString(),
                         height: context.h * 0.15,
                         index: __, color: context.watch<HomeCubit>().colorList[__]);
                   }),

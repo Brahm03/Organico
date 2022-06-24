@@ -17,6 +17,7 @@ class MainView extends StatelessWidget {
 
   Scaffold scafold() {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: const NavigationbarWidget(),
       body: BlocBuilder<HomeCubit, MainState>(builder: (context, state) {
         if (state is HomeState) {

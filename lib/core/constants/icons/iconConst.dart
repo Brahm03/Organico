@@ -20,4 +20,5 @@ class IconConst {
   static SvgPicture time = SvgPicture.asset('assets/icons/time.svg');
   static SvgPicture category = SvgPicture.asset('assets/icons/category.svg');
   static SvgPicture message = SvgPicture.asset('assets/icons/message.svg');
+  static SvgPicture x = SvgPicture.asset('assets/icons/x.svg');
 }
