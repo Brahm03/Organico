@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:organic/core/components/themes/all_themes.dart';
 import 'package:organic/core/constants/color/colorConst.dart';
 import 'package:organic/core/constants/icons/iconConst.dart';
 import 'package:organic/service/data_service.dart';
@@ -22,6 +23,18 @@ class HomeCubit extends Cubit<MainState> {
     'assets/images/banana.png',
     'assets/images/meat.png'
   ];
+
+  static bool dark = false;
+
+  changeMode() {
+    if (dark == false) {
+      dark = true;
+      emit(Explorestate());
+    } else {
+      dark = false;
+      emit(Explorestate());
+    }
+  }
 
   List categoriesName = ['Vegetables', 'Fruits', 'Meats'];
 
@@ -140,7 +153,6 @@ class HomeCubit extends Cubit<MainState> {
     image = (await imagePicker.pickImage(source: ImageSource.gallery))!;
     // emit(HomeState());
   }
-
 
   String groupValue = "radios";
 

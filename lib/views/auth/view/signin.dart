@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:organic/core/components/keyboardservice/keyboardservice.dart';
+import 'package:organic/core/components/navigatorService.dart/navigationservice.dart';
 import 'package:organic/core/constants/PM/PMconst.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
 import 'package:organic/core/constants/icons/iconConst.dart';
@@ -82,7 +83,7 @@ class SingInView extends StatelessWidget {
                         ),
                       )),
                   SizedBox(height: context.h * 0.01),
-                  ButtonWidgets(text: 'Sign in', onPressed: () {}),
+                  ButtonWidgets(text: 'Sign in', onPressed: () => NavigationService.instance.pushNamedAndRemoveUntil('/main_view')),
                   SizedBox(height: context.h * 0.01),
                   Center(
                     child: Row(

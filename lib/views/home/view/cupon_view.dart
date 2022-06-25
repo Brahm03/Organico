@@ -37,7 +37,7 @@ class CuponView extends StatelessWidget {
                   return Padding(
                     padding: EdgeInsets.only(bottom: context1.h * 0.02),
                     child: CouponListTileWidget(
-                        listTileColor: __ != 3 ? ColorConst.whitePink : ColorConst.white,
+                        listTileColor: __ != 3 ? ColorConst.whitePink : Colors.transparent,
                         leadingColor: ColorConst.whitePink,
                         title: data.cupons[__],
                         subtitle: data.cuponssub[__]),

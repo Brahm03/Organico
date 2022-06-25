@@ -23,7 +23,7 @@ class ExploreView extends StatelessWidget {
             AppBarWidget(
               trailing: IconButton(
                 icon: IconConst.filter,
-                onPressed: () {},
+                onPressed: () => context.read<HomeCubit>().changeMode(),
               ),
               onpressed: () {},
               text: 'Explore',

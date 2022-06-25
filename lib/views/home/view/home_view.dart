@@ -55,7 +55,8 @@ class HomeView extends StatelessWidget {
                     CouponListTileWidget(
                         onTap: () => NavigationService.instance.pushNamed(routeName: '/cupon_view', args: context),
                         trailing: IconConst.rightarrow,
-                        leadingColor: ColorConst.whiteGreen,
+                        listTileColor: Colors.transparent,
+                        leadingColor: Colors.transparent,
                         title: 'You have 3 cupon',
                         subtitle: 'Let’s use this coupon'),
                     SizedBox(height: context.h * 0.03),

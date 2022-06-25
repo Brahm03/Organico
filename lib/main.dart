@@ -3,6 +3,7 @@ import 'package:organic/core/components/navigatorService.dart/navigationservice.
 import 'package:organic/core/components/themes/all_themes.dart';
 import 'package:organic/routes/allroutes.dart';
 import 'package:organic/service/data_service.dart';
+import 'package:organic/views/home/cubit/home_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigationService.instance.navigatorKey,
           title: 'Organico',
-          theme: Allthemes.instance.dark,
+          theme: HomeCubit.dark ? Allthemes.instance.dark : Allthemes.instance.light,
           initialRoute: '/splash',
           onGenerateRoute: AllRoutes.instance.ongenerateRoute,
     );
