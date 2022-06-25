@@ -8,11 +8,20 @@ class TextformFieldWidgets extends StatelessWidget {
   final Widget prefixIcon;
   final String hintText;
   final bool obSecure;
-  const TextformFieldWidgets({this.obSecure = false,required this.hintText,this.prefixIcon = const SizedBox(),this.suffixIcon = const SizedBox(),Key? key}) : super(key: key);
+  final int maxlines;
+  const TextformFieldWidgets(
+      {this.obSecure = false,
+      this.maxlines = 1,
+      required this.hintText,
+      this.prefixIcon = const SizedBox(),
+      this.suffixIcon = const SizedBox(),
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+        maxLines: maxlines,
         obscureText: obSecure,
         decoration: InputDecoration(
             contentPadding: PMconst.small,

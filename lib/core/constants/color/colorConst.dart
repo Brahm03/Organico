@@ -14,4 +14,5 @@ class ColorConst {
   static const Color whitePink = Color(0XFFFE706E);
   static Color whiteGreen = CupertinoColors.activeGreen.withOpacity(0.5);
   static const Color profilemaincolor = Color(0XFF0F1C2A);
+  static Color blackPink = Color(0XFFEFD9DD);
 }

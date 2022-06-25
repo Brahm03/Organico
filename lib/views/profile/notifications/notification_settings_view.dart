@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:organico/config/init/navigation/navigator.dart';
-import 'package:organico/core/constants/icons/icon_const.dart';
-import 'package:organico/core/font/font_style.dart';
-import 'package:organico/widgets/apbar/app_bar_widget.dart';
+import 'package:organic/core/constants/fonts/fontStyle.dart';
+import 'package:organic/widgets/appbar.dart';
+
 
 class NotificationSettingsView extends StatelessWidget {
   const NotificationSettingsView({Key? key}) : super(key: key);
@@ -17,26 +14,22 @@ class NotificationSettingsView extends StatelessWidget {
           children: [
             AppBarWidget(
               text: "Notification Settings",
-              leading: IconButton(
-                  onPressed: () {
-                    NavigationService.instance.pop("");
-                  },
-                  icon: IconConst.leftarrow),
+              onpressed: (){},
             ),
             SwitchListTile.adaptive(
-                title: Text("In App Notification", style: FStyles.headline4s),
+                title: Text("In App Notification", style: FontStyles.headline4s),
                 value: true,
                 onChanged: (v) {}),
             SwitchListTile.adaptive(
-                title: Text("New Promo", style: FStyles.headline4s),
+                title: Text("New Promo", style: FontStyles.headline4s),
                 value: true,
                 onChanged: (v) {}),
             SwitchListTile.adaptive(
-                title: Text("Tips & trick", style: FStyles.headline4s),
+                title: Text("Tips & trick", style: FontStyles.headline4s),
                 value: true,
                 onChanged: (v) {}),
             SwitchListTile.adaptive(
-                title: Text("Update Application", style: FStyles.headline4s),
+                title: Text("Update Application", style: FontStyles.headline4s),
                 value: false,
                 onChanged: (v) {})
           ],

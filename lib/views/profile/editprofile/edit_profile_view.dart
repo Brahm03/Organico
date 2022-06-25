@@ -2,18 +2,19 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:organico/config/init/navigation/navigator.dart';
-import 'package:organico/core/components/keyboard_service.dart';
-import 'package:organico/core/constants/colors/color_const.dart';
-import 'package:organico/core/constants/icons/icon_const.dart';
-import 'package:organico/core/constants/pmconst/pm_const.dart';
-import 'package:organico/core/extensions/context_extension.dart';
-import 'package:organico/core/font/font_style.dart';
-import 'package:organico/screens/home/cubit/home_cubit.dart';
-import 'package:organico/widgets/apbar/app_bar_widget.dart';
-import 'package:organico/widgets/buttons/elevated_button.dart';
-import 'package:organico/widgets/textform/intl_phone_field_widget.dart';
-import 'package:organico/widgets/textform/text_form_widget.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:organic/core/components/keyboardservice/keyboardservice.dart';
+import 'package:organic/core/components/navigatorService.dart/navigationservice.dart';
+import 'package:organic/core/components/styles/allstyles.dart';
+import 'package:organic/core/constants/PM/PMconst.dart';
+import 'package:organic/core/constants/color/colorConst.dart';
+import 'package:organic/core/constants/fonts/fontStyle.dart';
+import 'package:organic/core/constants/icons/iconConst.dart';
+import 'package:organic/extension/size_extension.dart';
+import 'package:organic/views/home/cubit/home_cubit.dart';
+import 'package:organic/widgets/appbar.dart';
+import 'package:organic/widgets/buttonwidgets.dart';
+import 'package:organic/widgets/textformfield.dart';
 
 class EditProfileView extends StatelessWidget {
   final BuildContext forcontext;
@@ -37,16 +38,13 @@ class EditProfileView extends StatelessWidget {
             children: [
               AppBarWidget(
                 text: "Edit Profile",
-                leading:
-                    IconButton(onPressed: () {
-                      NavigationService.instance.pop("");
-                    }, icon: IconConst.leftarrow),
+                onpressed: () {},
               ),
               SizedBox(height: context.h * 0.01),
               SizedBox(
                 child: StatefulBuilder(
                   builder: ((context, setState) {
-                    if (!KeyBoardService.instance.isKeyBoard(context)) {
+                    if (!KeyboardService.instance.keyboardchek(context)) {
                       return Container(
                         width: MediaQuery.of(context).size.width,
                         alignment: Alignment.center,
@@ -93,30 +91,27 @@ class EditProfileView extends StatelessWidget {
                 ),
               ),
               SizedBox(height: context.h * 0.02),
-              Text("Name", style: FStyles.headline4text),
+              const Text("Name", style: FontStyles.headline5s),
               SizedBox(height: context.h * 0.01),
-              MyTextField.textField(
-                  text: "Your Name", controller: cubitData.nameController),
+              const TextformFieldWidgets(hintText: "Your Name"),
               SizedBox(height: context.h * 0.02),
-              Text("Phone", style: FStyles.headline4text),
+              const Text("Phone", style: FontStyles.headline5s),
               SizedBox(height: context.h * 0.01),
-              PhoneTextField.phoneField(
-                  text: "Your Phone Number",
-                  controller: cubitData.phoneController),
-              Text("Address", style: FStyles.headline4text),
+              IntlPhoneField(
+                decoration: AllStyles.instance.searchFieldStyle,
+              ),
+              const Text("Address", style: FontStyles.headline5s),
               SizedBox(height: context.h * 0.01),
-              MyTextField.textField(
-                  text: "Your Address",
-                  controller: cubitData.locationController,
-                  maxlines: 4),
+              const TextformFieldWidgets(hintText: "Your Address", maxlines: 4),
             ],
           ),
         ),
       ),
-      floatingActionButton: ElevatedButtonWidget(
-          height: context.h * 0.06, 
-          child: Text("Save"), onPressed: () {
-            NavigationService.instance.pushNamed(routeName: '/changednumberconfirmationview', args: context);
+      floatingActionButton: ButtonWidgets(
+          text: 'text',
+          onPressed: () {
+            NavigationService.instance.pushNamed(
+                routeName: '/changednumberconfirmationview', args: context);
           }),
     );
   }

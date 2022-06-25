@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:organico/config/init/navigation/navigator.dart';
-import 'package:organico/core/constants/icons/icon_const.dart';
-import 'package:organico/core/constants/pmconst/pm_const.dart';
-import 'package:organico/core/extensions/context_extension.dart';
-import 'package:organico/core/font/font_style.dart';
-import 'package:organico/screens/home/cubit/home_cubit.dart';
-import 'package:organico/widgets/apbar/app_bar_widget.dart';
-import 'package:organico/widgets/buttons/elevated_button.dart';
-import 'package:organico/widgets/textform/text_form_widget.dart';
+import 'package:organic/core/constants/PM/PMconst.dart';
+import 'package:organic/core/constants/fonts/fontStyle.dart';
+import 'package:organic/extension/size_extension.dart';
+import 'package:organic/views/home/cubit/home_cubit.dart';
+import 'package:organic/widgets/appbar.dart';
+import 'package:organic/widgets/buttonwidgets.dart';
+import 'package:organic/widgets/textformfield.dart';
 
 class AddPaymentMethodView extends StatelessWidget {
   final BuildContext forcontext;
@@ -30,9 +28,7 @@ class AddPaymentMethodView extends StatelessWidget {
         children: [
           AppBarWidget(
             text: "Add Payment Method",
-            leading: IconButton(onPressed: () {
-              NavigationService.instance.pop("");
-            }, icon: IconConst.leftarrow),
+            onpressed: (){},
           ),
           Expanded(
               child: Padding(
@@ -40,13 +36,13 @@ class AddPaymentMethodView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Select Method", style: FStyles.headline4sbold),
+                Text("Select Method", style: FontStyles.headline4sbold),
                 Row(
                   children: [
                     Expanded(
                         child: RadioListTile(
                             title: Text("Credit Card",
-                                style: FStyles.headline5bold),
+                                style: FontStyles.headline5sbold),
                             value: "1",
                             groupValue: dataFunction.groupValue,
                             onChanged: (v) {
@@ -54,7 +50,7 @@ class AddPaymentMethodView extends StatelessWidget {
                             })),
                     Expanded(
                         child: RadioListTile(
-                            title: Text("PayPal", style: FStyles.headline5bold),
+                            title: Text("PayPal", style: FontStyles.headline5sbold),
                             value: "2",
                             groupValue: dataFunction.groupValue,
                             onChanged: (v) {
@@ -63,18 +59,18 @@ class AddPaymentMethodView extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: context.h * 0.02),
-                Text("Details Method", style: FStyles.headline4sbold),
+                Text("Details Method", style: FontStyles.headline4sbold),
                 SizedBox(height: context.h * 0.02),
-                Text("Name", style: FStyles.headline4text),
+                Text("Name", style: FontStyles.headline4s),
                 SizedBox(height: context.h * 0.01),
-                MyTextField.textField(
-                    text: "Card Holder Name", controller: data.nameController),
+                TextformFieldWidgets(
+                    hintText: "Card Holder Name", ),
                 SizedBox(height: context.h * 0.02),
-                Text("Credit Card Number", style: FStyles.headline4text),
+                Text("Credit Card Number", style: FontStyles.headline4s),
                 SizedBox(height: context.h * 0.01),
-                MyTextField.textField(
-                    text: "Credit Card Number",
-                    controller: data.cardNumberController),
+                TextformFieldWidgets(
+                    hintText: "Credit Card Number",
+                    ),
                 SizedBox(height: context.h * 0.02),
                 Row(
                   children: [
@@ -83,11 +79,11 @@ class AddPaymentMethodView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text("CCV",
-                              style: FStyles.headline4text),
+                              style: FontStyles.headline4s),
                           SizedBox(height: context.h * 0.01),
-                          MyTextField.textField(
-                              text: "CCV",
-                              controller: data.ccvController),
+                          TextformFieldWidgets(
+                      hintText: "CCV",
+                              ),
                           SizedBox(height: context.h * 0.02),
                         ],
                       ),
@@ -98,11 +94,11 @@ class AddPaymentMethodView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text("Expires",
-                              style: FStyles.headline4text),
+                              style: FontStyles.headline4s),
                           SizedBox(height: context.h * 0.01),
-                          MyTextField.textField(
-                              text: "Expires",
-                              controller: data.ccvController),
+                          TextformFieldWidgets(
+                              hintText: "Expires",
+                              ),
                           SizedBox(height: context.h * 0.02),
                         ],
                       ),
@@ -115,11 +111,7 @@ class AddPaymentMethodView extends StatelessWidget {
         ],
       ),
     ),
-    floatingActionButton: ElevatedButtonWidget(
-        height: context.h * 0.06,
-        child: Text("Save"),
-        onPressed: () {
-        }),
+    floatingActionButton: ButtonWidgets(text: 'text', onPressed: (){})
     );
   }
 }

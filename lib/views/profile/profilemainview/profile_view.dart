@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:organico/config/init/navigation/navigator.dart';
-import 'package:organico/core/components/box_only_decoration.dart';
-import 'package:organico/core/constants/colors/color_const.dart';
-import 'package:organico/core/constants/icons/icon_const.dart';
-import 'package:organico/core/constants/pmconst/pm_const.dart';
-import 'package:organico/core/extensions/context_extension.dart';
-import 'package:organico/core/font/font_style.dart';
-import 'package:organico/screens/home/cubit/home_cubit.dart';
-import 'package:organico/widgets/apbar/app_bar_widget.dart';
-import 'package:organico/widgets/listtilewidgets/profile_list_tile_widget.dart';
+import 'package:organic/core/components/navigatorService.dart/navigationservice.dart';
+import 'package:organic/core/components/styles/allstyles.dart';
+import 'package:organic/core/constants/PM/PMconst.dart';
+import 'package:organic/core/constants/color/colorConst.dart';
+import 'package:organic/core/constants/fonts/fontStyle.dart';
+import 'package:organic/extension/size_extension.dart';
+import 'package:organic/views/home/cubit/home_cubit.dart';
+import 'package:organic/widgets/appbar.dart';
+import 'package:organic/widgets/profile_list_tile_widget.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var cubitData = context.watch<HomeCubit>();
+  var cubitData = context.watch<HomeCubit>();
     var cubitDataFunction = context.read<HomeCubit>();
     return Scaffold(
       body: SafeArea(
@@ -24,20 +23,16 @@ class ProfileView extends StatelessWidget {
           children: [
             AppBarWidget(
                 text: "Profile",
-                trailing: IconButton(
-                    onPressed: () {
-                      NavigationService.instance
-                          .pushNamed(routeName: '/notificationview');
-                    },
-                    icon: IconConst.notification)),
+                onpressed: (){},
+            ),
             SizedBox(height: context.h * 0.01),
             const CircleAvatar(
               radius: 70,
               foregroundImage: AssetImage('assets/images/Avatar.png'),
             ),
             SizedBox(height: context.h * 0.01),
-            const Text("Jane Doe", style: FStyles.headline4sbold),
-            const Text("(307) 555-0133", style: FStyles.headline5main),
+            const Text("Jane Doe", style: FontStyles.headline4sbold),
+            const Text("(307) 555-0133", style: FontStyles.headline5s),
             SizedBox(height: context.h * 0.04),
             Expanded(
               child: ListView.builder(
@@ -51,12 +46,7 @@ class ProfileView extends StatelessWidget {
                         height: context.w * 0.10,
                         padding: PMconst.extraSmall,
                         child: cubitData.profileIconList[i],
-                        decoration: BoxOnlyDecoration.decor(
-                            ColorConst.profilemaincolor,
-                            bottomLeft: 10.0,
-                            bottomRight: 10.0,
-                            topLeft: 10.0,
-                            topRight: 10.0),
+                        decoration: AllStyles.instance.productStyel(color: ColorConst.kPrimaryColor),
                       ),
                       title: cubitData.titleList[i],
                     ),

@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:organico/config/init/navigation/navigator.dart';
-import 'package:organico/core/constants/icons/icon_const.dart';
-import 'package:organico/core/constants/pmconst/pm_const.dart';
-import 'package:organico/core/extensions/context_extension.dart';
-import 'package:organico/core/font/font_style.dart';
-import 'package:organico/screens/authentication/cubit/auth_cubit.dart';
-import 'package:organico/screens/home/cubit/home_cubit.dart';
-import 'package:organico/widgets/apbar/app_bar_widget.dart';
-import 'package:organico/widgets/buttons/elevated_button.dart';
-import 'package:organico/widgets/textform/text_form_widget.dart';
+import 'package:organic/core/constants/PM/PMconst.dart';
+import 'package:organic/core/constants/fonts/fontStyle.dart';
+import 'package:organic/core/constants/icons/iconConst.dart';
+import 'package:organic/extension/size_extension.dart';
+import 'package:organic/views/home/cubit/home_cubit.dart';
+import 'package:organic/widgets/appbar.dart';
+import 'package:organic/widgets/buttonwidgets.dart';
+import 'package:organic/widgets/textformfield.dart';
 
 class ChangePasswordView extends StatelessWidget {
   final BuildContext forcontext;
@@ -33,11 +31,7 @@ class ChangePasswordView extends StatelessWidget {
         children: [
           AppBarWidget(
             text: "Change Password",
-            leading: IconButton(
-                onPressed: () {
-                  NavigationService.instance.pop("");
-                },
-                icon: IconConst.leftarrow),
+            onpressed: (){},
           ),
           Expanded(
             child: SingleChildScrollView(
@@ -49,17 +43,16 @@ class ChangePasswordView extends StatelessWidget {
                   children: [
                     const Text(
                         "Please fill in the field below to change your current password.",
-                        style: FStyles.headline5main),
+                        style: FontStyles.headline5s),
                     SizedBox(height: context.h * 0.03),
                     const Text("Current Password",
-                        style: FStyles.headline4text),
+                        style: FontStyles.headline4s),
                     SizedBox(height: context.h * 0.01),
                     StatefulBuilder(
                       builder: ((context, setState) {
-                        return MyTextField.textField(
-                            text: "Current Password",
-                            controller: data.passwordController,
-                            isShown: data.getShown,
+                        return TextformFieldWidgets(
+                            hintText: "Current Password",
+                            obSecure: data.getShown,
                             suffixIcon: IconButton(
                                 onPressed: () {
                                   dataFunction.obSecure();
@@ -70,14 +63,13 @@ class ChangePasswordView extends StatelessWidget {
                       }),
                     ),
                     SizedBox(height: context.h * 0.02),
-                    const Text("New Password", style: FStyles.headline4text),
+                    const Text("New Password", style: FontStyles.headline4s),
                     SizedBox(height: context.h * 0.01),
                     StatefulBuilder(
                       builder: ((context, setState) {
-                        return MyTextField.textField(
-                          text: "New Password",
-                          controller: data.newpasswordController,
-                          isShown: data.getShown,
+                        return TextformFieldWidgets(
+                          hintText: "New Password",
+                          obSecure: data.getShown,
                           suffixIcon: IconButton(
                               iconSize: 40,
                               onPressed: () {
@@ -90,14 +82,13 @@ class ChangePasswordView extends StatelessWidget {
                     ),
                     SizedBox(height: context.h * 0.02),
                     const Text("New Password Confirmation",
-                        style: FStyles.headline4text),
+                        style: FontStyles.headline4s),
                     SizedBox(height: context.h * 0.01),
                     StatefulBuilder(
                       builder: ((context, setState) {
-                        return MyTextField.textField(
-                          text: "New Password Confirmation",
-                          controller: data.confirmationController,
-                          isShown: data.getShown,
+                        return TextformFieldWidgets(
+                          hintText: "New Password Confirmation",
+                          obSecure: data.getShown,
                           suffixIcon: IconButton(
                               iconSize: 40,
                               onPressed: () {
@@ -109,14 +100,7 @@ class ChangePasswordView extends StatelessWidget {
                       }),
                     ),
                     SizedBox(height: context.h * 0.04),
-                    ElevatedButtonWidget(
-                        height: context.h * 0.06,
-                        width: context.w,
-                        child: const Text(
-                          "Save Password",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        onPressed: () {}),
+                    ButtonWidgets(text: 'text', onPressed: (){}),
                   ],
                 ),
               ),

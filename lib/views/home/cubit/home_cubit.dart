@@ -2,7 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:organic/core/constants/color/colorConst.dart';
+import 'package:organic/core/constants/icons/iconConst.dart';
 import 'package:organic/service/data_service.dart';
 import 'package:organic/views/home/state/homeState.dart';
 
@@ -87,5 +89,62 @@ class HomeCubit extends Cubit<MainState> {
       case 3:
         return emit(ProfileState());
     }
+  }
+
+  // Icons list for profile page
+  List profileIconList = [
+    IconConst.profilewhite,
+    IconConst.documentwhite,
+    IconConst.heartwhite,
+    IconConst.locationwhite,
+    IconConst.creditcardwhite,
+    IconConst.headphonewhite,
+    IconConst.lockwhite,
+    IconConst.logoutwhite
+  ];
+
+  // Title list for profile page
+  List titleList = [
+    "Edit Profile",
+    "My Orders",
+    "My Wishlist",
+    "My Address",
+    "Payment Method",
+    "Customer Service",
+    "Change Password",
+    "Logout"
+  ];
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController newpasswordController = TextEditingController();
+  TextEditingController confirmationController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
+  TextEditingController cardNumberController = TextEditingController();
+  TextEditingController ccvController = TextEditingController();
+  TextEditingController expiresController = TextEditingController();
+  TextEditingController messageController = TextEditingController();
+
+  bool _isShown = true;
+
+  get getShown => _isShown;
+
+  void obSecure() {
+    _isShown = !_isShown;
+  }
+
+  final imagePicker = ImagePicker();
+  XFile? image;
+
+  void fromGallery() async {
+    image = (await imagePicker.pickImage(source: ImageSource.gallery))!;
+    // emit(HomeState());
+  }
+
+
+  String groupValue = "radios";
+
+  void radioButton(dynamic v) {
+    groupValue = v;
   }
 }

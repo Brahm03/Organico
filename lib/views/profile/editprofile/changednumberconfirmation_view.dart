@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:organico/config/init/navigation/navigator.dart';
-import 'package:organico/core/constants/icons/icon_const.dart';
-import 'package:organico/core/constants/pmconst/pm_const.dart';
-import 'package:organico/core/extensions/context_extension.dart';
-import 'package:organico/core/font/font_style.dart';
-import 'package:organico/screens/authentication/cubit/auth_cubit.dart';
-import 'package:organico/screens/authentication/state/auth_state.dart';
-import 'package:organico/screens/home/cubit/home_cubit.dart';
-import 'package:organico/screens/home/state/home_state.dart';
-import 'package:organico/widgets/apbar/app_bar_widget.dart';
-import 'package:organico/widgets/buttons/elevated_button.dart';
-import 'package:organico/widgets/textform/text_form_widget.dart';
+import 'package:organic/core/components/navigatorService.dart/navigationservice.dart';
+import 'package:organic/core/constants/PM/PMconst.dart';
+import 'package:organic/core/constants/fonts/fontStyle.dart';
+import 'package:organic/extension/size_extension.dart';
+import 'package:organic/views/home/cubit/home_cubit.dart';
+import 'package:organic/widgets/appbar.dart';
+import 'package:organic/widgets/buttonwidgets.dart';
+import 'package:organic/widgets/textformfield.dart';
 
 class ChangedNumberConfirmationView extends StatelessWidget {
   final BuildContext forcontext;
@@ -34,27 +28,23 @@ class ChangedNumberConfirmationView extends StatelessWidget {
           children: [
             AppBarWidget(
               text: "OTAC Number",
-              leading: IconButton(
-                  onPressed: () {
-                    NavigationService.instance.pop("");
-                  },
-                  icon: IconConst.leftarrow),
+              onpressed: () {},
             ),
             SizedBox(height: context.h * 0.05),
             const Padding(
               padding: PMconst.small,
               child: Text(
                   "It looks like you changed your phone number. Please enter the OTAC number that we have sent to your new phone number.",
-                  style: FStyles.headline5main),
+                  style: FontStyles.headline6s),
             ),
             SizedBox(height: context.h * 0.03),
             Padding(
               padding: PMconst.small,
               child: Column(
                 children: [
-                  MyTextField.textField(
-                      text: "6 Digit Code",
-                      controller: data.confirmationController),
+                  const TextformFieldWidgets(
+                    hintText: "6 Digit Code",
+                  ),
                   Padding(
                     padding: PMconst.extraSmall,
                     child: Container(
@@ -65,20 +55,17 @@ class ChangedNumberConfirmationView extends StatelessWidget {
                         onTap: () {},
                         child: const Text(
                           "Resend Code",
-                          style: FStyles.headline5text,
+                          style: FontStyles.headline6s,
                         ),
                       ),
                     ),
                   ),
                   SizedBox(height: context.h * 0.03),
-                  ElevatedButtonWidget(
-                      height: context.h * 0.06,
-                      width: context.w,
-                      child: const Text("Next"),
+                  ButtonWidgets(
+                      text: 'text',
                       onPressed: () {
                         NavigationService.instance
                             .pushNamedAndRemoveUntil("/mainview");
-                        dataFonction.changeState(ProfileState());
                       })
                 ],
               ),
