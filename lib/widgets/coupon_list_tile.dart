@@ -1,13 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:organic/core/components/styles/allstyles.dart';
 import 'package:organic/core/constants/PM/PMconst.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
 import 'package:organic/core/constants/icons/iconConst.dart';
+import 'package:organic/core/constants/radius/radiusConst.dart';
 import 'package:organic/extension/size_extension.dart';
 
 class CouponListTileWidget extends StatelessWidget {
   final Color leadingColor;
-  final Color? listTileColor;
+  final Color listTileColor;
   final String title;
   final String subtitle;
   final Widget? trailing;
@@ -15,7 +17,7 @@ class CouponListTileWidget extends StatelessWidget {
   const CouponListTileWidget({
     Key? key,
     required this.leadingColor,
-    this.listTileColor,
+    this.listTileColor = CupertinoColors.white,
     required this.title,
     required this.subtitle,
     this.trailing,
@@ -24,16 +26,18 @@ class CouponListTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: onTap,
-        leading: Container(
-          width: context.w * 0.12,
-          height: context.w * 0.12,
-          padding: PMconst.extraSmall,
-          // decoration: AllStyles.instance.productStyel(color: listTileColor!),
-          child: IconConst.cupon,),
-        title: Text(title, style: FontStyles.headline4sbold),
-        subtitle: Text(subtitle, style: FontStyles.headline6sdarkgrey),
-        trailing: trailing);
+    return Container(
+      decoration: AllStyles.instance.productStyel(color: listTileColor, borderradius: RadiuConst.small),
+      child: ListTile(
+        onTap: onTap,
+          leading: Container(
+            width: context.w * 0.12,
+            height: context.w * 0.12,
+            padding: PMconst.extraSmall,
+            child: IconConst.cupon,),
+          title: Text(title, style: FontStyles.headline4sbold),
+          subtitle: Text(subtitle, style: FontStyles.headline6sdarkgrey),
+          trailing: trailing),
+    );
   }
 }

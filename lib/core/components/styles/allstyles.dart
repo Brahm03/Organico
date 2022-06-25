@@ -25,11 +25,11 @@ class AllStyles {
         fixedSize: Size(width, height));
   }
 
-  productStyel({Color borderColor = Colors.transparent, required Color color}) {
+  productStyel({Color borderColor = Colors.transparent, required Color color, double borderradius = RadiuConst.large}) {
     return BoxDecoration(
       border: Border.all(color: borderColor, width: 1),
       color: color,
-      borderRadius: BorderRadius.circular(RadiuConst.large),
+      borderRadius: BorderRadius.circular(borderradius),
     );
   }
 
