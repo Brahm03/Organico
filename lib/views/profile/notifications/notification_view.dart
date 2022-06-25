@@ -18,10 +18,13 @@ class NotificationView extends StatelessWidget {
         child: Column(
           children: [
             AppBarWidget(
-              trailing: InkWell(child: IconConst.settings, onTap: (){
-                 NavigationService.instance
-                    .pushNamed(routeName: '/notificationsettingsview');
-              },),
+              trailing: InkWell(
+                child: IconConst.settings,
+                onTap: () {
+                  NavigationService.instance
+                      .pushNamed(routeName: '/notificationsettingsview');
+                },
+              ),
               text: "Notification",
               onpressed: () => NavigationService.instance.pop(),
             ),
@@ -53,12 +56,11 @@ class NotificationView extends StatelessWidget {
               ),
             ),
             SizedBox(height: context.h * 0.02),
-            CouponListTileWidget(
-              leadingColor: ColorConst.kPrimaryColor,
-              // listTileColor: ColorConst.blackPink,
-              title: "Tips",
-              subtitle: ''
-            ),
+            CuponListTileWidget(
+                leadingColor: ColorConst.kPrimaryColor,
+                // listTileColor: ColorConst.blackPink,
+                title: "Tips",
+                subtitle: ''),
           ],
         ),
       ),

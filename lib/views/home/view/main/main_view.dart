@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:organic/views/home/cubit/home_cubit.dart';
 import 'package:organic/views/home/state/homeState.dart';
-import 'package:organic/views/home/view/cart/cart_view.dart';
+import 'package:organic/views/home/view/cart/view/cart_view.dart';
 import 'package:organic/views/home/view/explore/explore_view.dart';
 import 'package:organic/views/home/view/home_view.dart';
 import 'package:organic/views/profile/profilemainview/profile_view.dart';

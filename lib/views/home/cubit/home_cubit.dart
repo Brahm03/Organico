@@ -24,6 +24,16 @@ class HomeCubit extends Cubit<MainState> {
     'assets/images/meat.png'
   ];
 
+  List<String> baginfo = ['Subtotal', 'Delivery charge', 'Coupon', 'Total'];
+
+  List<String> baginfoprice = [
+      '9.98',
+      '1',
+      '-1',
+      '9.98'
+    ''
+  ];
+
   static bool dark = false;
 
   changeMode() {

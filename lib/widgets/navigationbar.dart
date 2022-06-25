@@ -11,11 +11,11 @@ class NavigationbarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoTabBar(
-        activeColor: ColorConst.dark,
+        activeColor: HomeCubit.dark ? ColorConst.white : ColorConst.dark,
         currentIndex: context.watch<HomeCubit>().currentIndex,
         onTap: (v) => context.read<HomeCubit>().onStateChange(v),
         items: [
-          BottomNavigationBarItem(icon: IconConst.home, label: 'Home'),
+          BottomNavigationBarItem(icon: IconConst.home, label: 'Home',),
           BottomNavigationBarItem(icon: IconConst.search, label: 'Explore'),
           BottomNavigationBarItem(icon: IconConst.cart, label: 'Cart'),
           BottomNavigationBarItem(icon: IconConst.profile, label: 'Profile'),

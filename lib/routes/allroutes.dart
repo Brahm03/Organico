@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organic/views/auth/view/main/auth_main.dart';
+import 'package:organic/views/home/view/cart/view/bag_view.dart';
 import 'package:organic/views/home/view/cupon_view.dart';
 import 'package:organic/views/home/view/info_view.dart';
 import 'package:organic/views/home/view/main/main_view.dart';
@@ -33,18 +34,26 @@ class AllRoutes {
         return pageReturner(InfoView(
           product: args as Map,
         ));
+      case '/bag_view':
+        return pageReturner(BagView(newcontext: args as BuildContext,));
       case '/search_view':
-        return pageReturner(SearchView(newcontext: args as BuildContext,));
+        return pageReturner(SearchView(
+          newcontext: args as BuildContext,
+        ));
       case '/cupon_view':
-        return pageReturner(CuponView(context1: args as BuildContext,));  
+        return pageReturner(CuponView(
+          context1: args as BuildContext,
+        ));
       case '/notificationview':
         return pageReturner(NotificationView());
       case '/notificationsettingsview':
         return pageReturner(NotificationSettingsView());
       case '/changepasswordview':
-        return pageReturner(ChangePasswordView(forcontext: args as BuildContext));
+        return pageReturner(
+            ChangePasswordView(forcontext: args as BuildContext));
       case '/paymentmethodview':
-        return pageReturner(PaymentMethodView(forcontext: args as BuildContext));
+        return pageReturner(
+            PaymentMethodView(forcontext: args as BuildContext));
       case '/addressview':
         return pageReturner(AddressView());
       case '/editprofileview':
@@ -53,9 +62,11 @@ class AllRoutes {
         return pageReturner(
             ChangedNumberConfirmationView(forcontext: args as BuildContext));
       case '/addpaymentmethodview':
-        return pageReturner(AddPaymentMethodView(forcontext: args as BuildContext));
-            case '/customerserviceview':
-        return pageReturner(CustomerServiceView(forcontext: args as BuildContext));  
+        return pageReturner(
+            AddPaymentMethodView(forcontext: args as BuildContext));
+      case '/customerserviceview':
+        return pageReturner(
+            CustomerServiceView(forcontext: args as BuildContext));
     }
     return null;
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:organic/core/components/navigatorService.dart/navigationservice.dart';
 import 'package:organic/core/components/styles/allstyles.dart';
 import 'package:organic/core/constants/PM/PMconst.dart';
 import 'package:organic/core/constants/color/colorConst.dart';
@@ -27,12 +28,12 @@ class CartView extends StatelessWidget {
               child: Container(
                 width: context.w,
                 padding: PMconst.small,
-                decoration: AllStyles.instance.productStyel(borderColor: ColorConst.darkGrey,color: ColorConst.white),
+                decoration: AllStyles.instance.productStyel(borderColor: ColorConst.darkGrey,color: Colors.transparent),
                 child: Column(
                   children: [
                     ListTile(
                       leading: CircleAvatar(
-                        backgroundColor: ColorConst.whiteGreen,
+                        backgroundColor: ColorConst.grey,
                         child: IconConst.home,
                       ),
                       title: const Text(
@@ -109,7 +110,7 @@ class CartView extends StatelessWidget {
                     ],
                   ),
                 ),
-                ButtonWidgets(width: context.w * 0.8,text: 'Add to bag', onPressed: (){}),
+                ButtonWidgets(width: context.w * 0.8,text: 'Add to bag', onPressed: () => NavigationService.instance.pushNamed(routeName: '/bag_view', args: context)),
               ],
             ),
             SizedBox(height: context.h * 0.01)

@@ -52,8 +52,9 @@ class HomeView extends StatelessWidget {
                       decoration: AllStyles.instance.searchFieldStyle,
                     ),
                     SizedBox(height: context.h * 0.03),
-                    CouponListTileWidget(
-                        onTap: () => NavigationService.instance.pushNamed(routeName: '/cupon_view', args: context),
+                    CuponListTileWidget(
+                        onTap: () => NavigationService.instance
+                            .pushNamed(routeName: '/cupon_view', args: context),
                         trailing: IconConst.rightarrow,
                         listTileColor: Colors.transparent,
                         leadingColor: Colors.transparent,

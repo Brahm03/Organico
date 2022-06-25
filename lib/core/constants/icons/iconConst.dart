@@ -54,4 +54,6 @@ class IconConst {
       SvgPicture.asset('assets/icons/profile/TagWhite.svg');
   static SvgPicture mailwhite =
       SvgPicture.asset('assets/icons/profile/MailWhite.svg');
+   static SvgPicture pencil =
+      SvgPicture.asset('assets/icons/pen.svg');    
 }

@@ -12,7 +12,9 @@ class FontStyles {
   static const TextStyle headline4s =
       TextStyle(fontSize: FonstSizeConst.medium2);
   static const TextStyle headline4sbold =
-      TextStyle(fontSize: FonstSizeConst.medium2, fontFamily: 'Poppin-bold' , fontWeight: FontWeight.bold);    
+      TextStyle(fontSize: FonstSizeConst.medium2, fontFamily: 'Poppin-bold' , fontWeight: FontWeight.bold);   
+  static const TextStyle headline4sboldred =
+      TextStyle(fontSize: FonstSizeConst.medium2, fontFamily: 'Poppin-bold' , fontWeight: FontWeight.bold, color: ColorConst.kPrimaryColor);        
   static const TextStyle headline4sbolddark =
       TextStyle(fontSize: FonstSizeConst.medium2, fontFamily: 'Poppin-bold' , fontWeight: FontWeight.bold, color: ColorConst.dark);        
   static const TextStyle headline5s =
