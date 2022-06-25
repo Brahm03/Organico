@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:organic/core/components/navigatorService.dart/navigationservice.dart';
 import 'package:organic/core/constants/PM/PMconst.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
 import 'package:organic/core/constants/icons/iconConst.dart';
@@ -31,7 +32,7 @@ class ChangePasswordView extends StatelessWidget {
         children: [
           AppBarWidget(
             text: "Change Password",
-            onpressed: (){},
+            onpressed: ()  => NavigationService.instance.pop(),
           ),
           Expanded(
             child: SingleChildScrollView(

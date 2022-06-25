@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigationService.instance.navigatorKey,
           title: 'Organico',
-          theme: Allthemes.instance.light,
+          theme: Allthemes.instance.dark,
           initialRoute: '/splash',
           onGenerateRoute: AllRoutes.instance.ongenerateRoute,
     );

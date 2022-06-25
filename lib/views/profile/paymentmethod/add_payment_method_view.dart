@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:organic/core/components/navigatorService.dart/navigationservice.dart';
 import 'package:organic/core/constants/PM/PMconst.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
 import 'package:organic/extension/size_extension.dart';
@@ -28,7 +29,7 @@ class AddPaymentMethodView extends StatelessWidget {
         children: [
           AppBarWidget(
             text: "Add Payment Method",
-            onpressed: (){},
+            onpressed: () => NavigationService.instance.pop(),
           ),
           Expanded(
               child: Padding(

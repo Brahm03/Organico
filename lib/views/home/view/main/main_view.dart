@@ -5,6 +5,7 @@ import 'package:organic/views/home/state/homeState.dart';
 import 'package:organic/views/home/view/cart_view.dart';
 import 'package:organic/views/home/view/explore_view.dart';
 import 'package:organic/views/home/view/home_view.dart';
+import 'package:organic/views/profile/profilemainview/profile_view.dart';
 import 'package:organic/widgets/navigationbar.dart';
 
 class MainView extends StatelessWidget {
@@ -27,9 +28,7 @@ class MainView extends StatelessWidget {
         } else if (state is CartState) {
           return const CartView();
         } else if (state is ProfileState) {
-          return const Center(
-            child: Text('Profile'),
-          );
+          return ProfileView();
         } else {
           return Container();
         }

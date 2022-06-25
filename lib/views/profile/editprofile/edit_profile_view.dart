@@ -10,6 +10,7 @@ import 'package:organic/core/constants/PM/PMconst.dart';
 import 'package:organic/core/constants/color/colorConst.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
 import 'package:organic/core/constants/icons/iconConst.dart';
+import 'package:organic/core/constants/radius/radiusConst.dart';
 import 'package:organic/extension/size_extension.dart';
 import 'package:organic/views/home/cubit/home_cubit.dart';
 import 'package:organic/widgets/appbar.dart';
@@ -98,7 +99,11 @@ class EditProfileView extends StatelessWidget {
               const Text("Phone", style: FontStyles.headline5s),
               SizedBox(height: context.h * 0.01),
               IntlPhoneField(
-                decoration: AllStyles.instance.searchFieldStyle,
+                decoration: InputDecoration(
+                        contentPadding: PMconst.small,
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.circular(RadiuConst.extraLarge))),
               ),
               const Text("Address", style: FontStyles.headline5s),
               SizedBox(height: context.h * 0.01),

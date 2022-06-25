@@ -5,7 +5,6 @@ import 'package:organic/core/constants/PM/PMconst.dart';
 import 'package:organic/core/constants/color/colorConst.dart';
 import 'package:organic/core/constants/icons/iconConst.dart';
 import 'package:organic/extension/size_extension.dart';
-import 'package:organic/routes/allroutes.dart';
 import 'package:organic/widgets/appbar.dart';
 import 'package:organic/widgets/buttonwidgets.dart';
 import 'package:organic/widgets/profile_list_tile_widget.dart';
@@ -26,7 +25,7 @@ class PaymentMethodView extends StatelessWidget {
         children: [
           AppBarWidget(
             text: "Payment Method",
-            onpressed: (){},
+            onpressed: () => NavigationService.instance.pop(),
           ),
           Padding(
             padding: PMconst.medium,

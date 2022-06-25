@@ -5,6 +5,8 @@ import 'package:organic/core/components/styles/allstyles.dart';
 import 'package:organic/core/constants/PM/PMconst.dart';
 import 'package:organic/core/constants/color/colorConst.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
+import 'package:organic/core/constants/icons/iconConst.dart';
+import 'package:organic/core/constants/radius/radiusConst.dart';
 import 'package:organic/extension/size_extension.dart';
 import 'package:organic/views/home/cubit/home_cubit.dart';
 import 'package:organic/widgets/appbar.dart';
@@ -22,12 +24,13 @@ class ProfileView extends StatelessWidget {
         child: Column(
           children: [
             AppBarWidget(
+                trailing: InkWell(onTap: () => NavigationService.instance.pushNamed(routeName: '/notificationview'),child: IconConst.notification),
                 text: "Profile",
                 onpressed: (){},
             ),
             SizedBox(height: context.h * 0.01),
             const CircleAvatar(
-              radius: 70,
+              radius: 50,
               foregroundImage: AssetImage('assets/images/Avatar.png'),
             ),
             SizedBox(height: context.h * 0.01),
@@ -46,7 +49,7 @@ class ProfileView extends StatelessWidget {
                         height: context.w * 0.10,
                         padding: PMconst.extraSmall,
                         child: cubitData.profileIconList[i],
-                        decoration: AllStyles.instance.productStyel(color: ColorConst.kPrimaryColor),
+                        decoration: AllStyles.instance.productStyel(borderradius: RadiuConst.small,color: ColorConst.profilemaincolor),
                       ),
                       title: cubitData.titleList[i],
                     ),

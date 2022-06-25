@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:organic/core/components/navigatorService.dart/navigationservice.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
 import 'package:organic/widgets/appbar.dart';
 
@@ -14,7 +15,7 @@ class NotificationSettingsView extends StatelessWidget {
           children: [
             AppBarWidget(
               text: "Notification Settings",
-              onpressed: (){},
+              onpressed: () => NavigationService.instance.pop(),
             ),
             SwitchListTile.adaptive(
                 title: Text("In App Notification", style: FontStyles.headline4s),

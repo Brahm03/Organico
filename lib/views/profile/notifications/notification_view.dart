@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:organic/core/components/navigatorService.dart/navigationservice.dart';
 import 'package:organic/core/constants/color/colorConst.dart';
 import 'package:organic/core/constants/fonts/fontStyle.dart';
+import 'package:organic/core/constants/icons/iconConst.dart';
 import 'package:organic/extension/size_extension.dart';
 import 'package:organic/widgets/appbar.dart';
 import 'package:organic/widgets/coupon_list_tile.dart';
@@ -17,11 +18,12 @@ class NotificationView extends StatelessWidget {
         child: Column(
           children: [
             AppBarWidget(
-              text: "Notification",
-              onpressed: () {
-                NavigationService.instance
+              trailing: InkWell(child: IconConst.settings, onTap: (){
+                 NavigationService.instance
                     .pushNamed(routeName: '/notificationsettingsview');
-              },
+              },),
+              text: "Notification",
+              onpressed: () => NavigationService.instance.pop(),
             ),
             ProfileListTileWidget(
               title: "Order Status",

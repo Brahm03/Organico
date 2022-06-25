@@ -65,7 +65,7 @@ class ChangedNumberConfirmationView extends StatelessWidget {
                       text: 'text',
                       onPressed: () {
                         NavigationService.instance
-                            .pushNamedAndRemoveUntil("/mainview");
+                            .pushNamedAndRemoveUntil("/main_view");
                       })
                 ],
               ),
