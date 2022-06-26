@@ -25,6 +25,8 @@ class FontStyles {
       TextStyle(fontSize: FonstSizeConst.medium1, fontFamily: 'Poppin-bold' , fontWeight: FontWeight.bold);
   static const TextStyle headline6s =
       TextStyle(fontSize: FonstSizeConst.smallmeddium);
+  static const TextStyle headline6sred =
+      TextStyle(fontSize: FonstSizeConst.smallmeddium, color: ColorConst.kPrimaryColor);    
   static const TextStyle headline6sbold =
       TextStyle(fontSize: FonstSizeConst.smallmeddium, fontWeight: FontWeight.bold);    
   static const TextStyle headline6sdarkgrey =

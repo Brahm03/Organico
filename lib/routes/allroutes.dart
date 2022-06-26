@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:organic/views/auth/view/main/auth_main.dart';
 import 'package:organic/views/home/view/cart/view/bag_view.dart';
+import 'package:organic/views/home/view/cart/view/orderStatusView.dart';
+import 'package:organic/views/home/view/cart/view/order_status_view.dart';
 import 'package:organic/views/home/view/cart/view/orger_view.dart';
 import 'package:organic/views/home/view/cupon_view.dart';
 import 'package:organic/views/home/view/info_view.dart';
@@ -31,6 +33,8 @@ class AllRoutes {
         return pageReturner(const AuthMain());
       case '/main_view':
         return pageReturner(const MainView());
+       case '/status_view':
+        return pageReturner(StatusView(forcontext: args as BuildContext,));  
       case '/info_view':
         return pageReturner(InfoView(
           product: args as Map,
@@ -48,7 +52,9 @@ class AllRoutes {
           context1: args as BuildContext,
         ));
       case '/order_view':
-        return pageReturner(OrderView());
+        return pageReturner(OrderView(newcontext: args as BuildContext,));
+      case '/orderStatus_view':
+        return pageReturner(OrderStatusView(newcontext: args as BuildContext,));  
       case '/notificationview':
         return pageReturner(NotificationView());
       case '/notificationsettingsview':

@@ -17,16 +17,19 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  var cubitData = context.watch<HomeCubit>();
+    var cubitData = context.watch<HomeCubit>();
     var cubitDataFunction = context.read<HomeCubit>();
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
             AppBarWidget(
-                trailing: InkWell(onTap: () => NavigationService.instance.pushNamed(routeName: '/notificationview'),child: IconConst.notification),
-                text: "Profile",
-                onpressed: (){},
+              trailing: InkWell(
+                  onTap: () => NavigationService.instance
+                      .pushNamed(routeName: '/notificationview'),
+                  child: IconConst.notification),
+              text: "Profile",
+              onpressed: () {},
             ),
             SizedBox(height: context.h * 0.01),
             const CircleAvatar(
@@ -49,26 +52,28 @@ class ProfileView extends StatelessWidget {
                         height: context.w * 0.10,
                         padding: PMconst.extraSmall,
                         child: cubitData.profileIconList[i],
-                        decoration: AllStyles.instance.productStyel(borderradius: RadiuConst.small,color: ColorConst.profilemaincolor),
+                        decoration: AllStyles.instance.productStyel(
+                            borderradius: RadiuConst.small,
+                            color: ColorConst.profilemaincolor),
                       ),
                       title: cubitData.titleList[i],
                     ),
                     onTap: () {
                       if (i == 0) {
-                        NavigationService.instance
-                            .pushNamed(routeName: '/editprofileview', args: context);
-                      } else
-                      if (i == 3) {
+                        NavigationService.instance.pushNamed(
+                            routeName: '/editprofileview', args: context);
+                      } else if (i == 1) {
+                        NavigationService.instance.pushNamed(routeName: '/order_view', args: context);
+                      } else if (i == 3) {
                         NavigationService.instance
                             .pushNamed(routeName: '/addressview');
                       } else if (i == 4) {
-                        NavigationService.instance
-                            .pushNamed(routeName: '/paymentmethodview', args: context);
+                        NavigationService.instance.pushNamed(
+                            routeName: '/paymentmethodview', args: context);
                       } else if (i == 5) {
                         NavigationService.instance.pushNamed(
                             routeName: '/customerserviceview', args: context);
-                      }
-                       else if (i == 6) {
+                      } else if (i == 6) {
                         NavigationService.instance.pushNamed(
                             routeName: '/changepasswordview', args: context);
                       }

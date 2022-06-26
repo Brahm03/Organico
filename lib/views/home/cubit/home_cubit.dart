@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:organic/core/components/themes/all_themes.dart';
 import 'package:organic/core/constants/color/colorConst.dart';
 import 'package:organic/core/constants/icons/iconConst.dart';
 import 'package:organic/service/data_service.dart';
@@ -15,6 +14,38 @@ class HomeCubit extends Cubit<MainState> {
   changeState(MainState state) {
     emit(state);
   }
+
+
+
+  // Lists for order status view
+  List overviewNames = [
+    "Order ID",
+    "Shop Name",
+    "Date",
+    "Notes",
+  ];
+
+  List overviewDetails = [
+    "20210302001",
+    "Popey Shop - New York",
+    "02 Mar 2021",
+    "Please check the product before packaging.",
+  ];
+
+  // List for total in order status view
+  List totalNames = [
+    "Subtotal",
+    "Delivery charge",
+    "Coupon",
+    "Total",
+  ];
+
+  List totalCosts = [
+    "\$9.98",
+    "\$1",
+    "-\$1",
+    "\$9.98",
+  ];
 
   int currentIndex = 0;
 

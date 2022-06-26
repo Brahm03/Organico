@@ -26,7 +26,7 @@ class BagView extends StatelessWidget {
   Scaffold scafold(BuildContext context) {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: ButtonWidgets(onPressed: () => NavigationService.instance.pushNamed(routeName: '/order_view'), text: 'Order now',),
+      floatingActionButton: ButtonWidgets(onPressed: () => NavigationService.instance.pushNamed(routeName: '/status_view', args: newcontext), text: 'Order now',),
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -67,7 +67,7 @@ class BagView extends StatelessWidget {
                             CartWidget(newcontext: newcontext, index: 5),
                             ButtonWidgets(
                               styles: FontStyles.headline4sboldred,
-                              text: 'Add more',
+                              text: 'Add more   +',
                               onPressed: () {},
                               backGroundColor: ColorConst.white,
                               bordercolor: ColorConst.kPrimaryColor,

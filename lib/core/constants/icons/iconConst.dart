@@ -1,7 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:organic/core/constants/color/colorConst.dart';
 
 class IconConst {
   static SvgPicture logo = SvgPicture.asset('assets/icons/Logo.svg');
+  static SvgPicture pinlocation = SvgPicture.asset('assets/icons/PinLocation.svg');
   static SvgPicture eye = SvgPicture.asset('assets/icons/eye.svg');
   static SvgPicture lock = SvgPicture.asset('assets/icons/lock.svg');
   static SvgPicture home = SvgPicture.asset('assets/icons/home.svg');
@@ -54,6 +57,9 @@ class IconConst {
       SvgPicture.asset('assets/icons/profile/TagWhite.svg');
   static SvgPicture mailwhite =
       SvgPicture.asset('assets/icons/profile/MailWhite.svg');
-   static SvgPicture pencil =
-      SvgPicture.asset('assets/icons/pen.svg');    
+  static SvgPicture pencil = SvgPicture.asset('assets/icons/pen.svg');
+  static Icon done = Icon(
+    Icons.done,
+    color: ColorConst.white,
+  );
 }
