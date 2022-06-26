@@ -26,7 +26,7 @@ class BagView extends StatelessWidget {
   Scaffold scafold(BuildContext context) {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: ButtonWidgets(onPressed: (){}, text: 'Order now',),
+      floatingActionButton: ButtonWidgets(onPressed: () => NavigationService.instance.pushNamed(routeName: '/order_view'), text: 'Order now',),
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -79,7 +79,7 @@ class BagView extends StatelessWidget {
                     Padding(
                       padding: PMconst.medium,
                       child: SizedBox(
-                        height: context.h * 0.95,
+                        height: context.h * 1 + 20,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,10 +124,11 @@ class BagView extends StatelessWidget {
                                 subtitle: ''),
                             SizedBox(
                               height: context.h * 0.3,
-                              child: ListView.builder(itemCount: newcontext.watch<HomeCubit>().baginfo.length,itemBuilder: (_, __) {
+                              child: ListView.builder(physics: const NeverScrollableScrollPhysics(),itemCount: newcontext.watch<HomeCubit>().baginfo.length,itemBuilder: (_, __) {
                                 return ListTile(title: Text(newcontext.watch<HomeCubit>().baginfo[__], style: __ == 3 ? FontStyles.headline5sbold : FontStyles.headline5sdarkgrey,), trailing: Text(newcontext.watch<HomeCubit>().baginfoprice[__], style: __ == 3 ? FontStyles.headline5sbold : FontStyles.headline6s,),);
                               }),
-                            )
+                            ),
+                            SizedBox(height: context.h * 0.05,)
                           ],
                         ),
                       ),
